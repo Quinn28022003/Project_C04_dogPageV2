@@ -1,0 +1,1290 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   font-family: "Nunito Sans", sans-serif;
+}
+
+//Css class none
+.displayNone {
+   display: none !important;
+}
+
+//Css class Show
+.displayBlock {
+   display: block !important;
+}
+
+// create variables color
+$color_white: white;
+$color_black: black;
+$color_727377: #727377;
+
+
+%CssHeading2 {
+   font-size: 44px;
+   color: $color_black;
+   text-align: center;
+}
+
+p {
+   color: $color_727377;
+   letter-spacing: 1px;
+   line-height: 1.6;
+}
+
+%CssBlockHaveStyleCommom {
+   height: auto;
+   text-align: center;
+   padding: 120px;
+}
+
+%CssInputForm {
+   width: 100%;
+   height: 40px;
+   margin: 10px 0px;
+   outline: none;
+   border: none;
+   box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+   border-radius: 4px;
+   padding: 2px 14px;
+}
+
+%CssTagPFooter {
+   color: $color_727377;
+   line-height: 1.6;
+   margin: 30px 0px;
+}
+
+@mixin backGround($bg_url, $height) {
+   background-image: $bg_url;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   height: $height;
+}
+
+
+@mixin respond-to($breakpoint) {
+   @media screen and (max-width: $breakpoint) {
+      @content;
+   }
+}
+
+
+// responsive folow tailwind css
+// xs(420) max-width: 420px;
+// sm (640px)	max-width: 640px;
+// md (768px)	max-width: 768px;
+// lg (1024px)	max-width: 1024px;
+// xl (1280px)	max-width: 1280px;
+// 2xl (1536px)	max-width: 1536px;
+
+// Css layouts header
+
+#header {
+   @include backGround(url('../img/1.jpg'), 100vh);
+   position: relative;
+
+   .header_logoAndNavigation {
+
+      .header_logo {
+         float: left;
+         font-size: 2em;
+         color: $color_white;
+         font-weight: 700;
+         margin: 30px 0px 0px 50px;
+         transition: all .5s;
+
+         @include respond-to($breakpoint: 420px) {
+            margin: 20px 0px 0px 30px;
+            transition: all .5s;
+         }
+      }
+
+      .header_navigation_ul {
+         float: right;
+         margin: 30px 50px 0px 0px;
+         list-style: none;
+
+         @include respond-to($breakpoint: 1024px) {
+            float: none;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: 0;
+            background-color: rgba($color_black, .8);
+            display: none;
+            z-index: 3;
+         }
+
+
+      }
+
+
+   }
+
+}
+
+.header_logoAndNavigation {
+
+   .header_navigation_menu {
+      display: none;
+      float: right;
+      margin: 30px 50px 0px 0px;
+      font-size: 2em;
+      border-radius: 8px;
+      padding: 5px 12px;
+      transition: all .5s;
+
+
+      @include respond-to($breakpoint: 1024px) {
+         display: block;
+      }
+
+      @include respond-to($breakpoint: 420px) {
+         margin: 20px 30px 0px 0px;
+         transition: all .5s;
+      }
+   }
+}
+
+#header {
+   .header_navigation_li {
+      display: inline-block;
+      color: $color_white;
+      margin: 0px 4px;
+      padding: 16px;
+      border-radius: 6px;
+
+
+      &:hover {
+         background-color: $color_white;
+         color: $color_black;
+         cursor: pointer;
+         transition: .5s ease-in-out;
+         border-radius: 6px;
+      }
+
+      &.active {
+         background-color: $color_white;
+         color: $color_black;
+         cursor: pointer;
+         transition: .5s ease-in-out;
+         border-radius: 6px;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         display: block;
+         text-align: center;
+         margin: 0px 4px;
+      }
+   }
+}
+
+
+.header_navigation_li_dropdown {
+   position: relative;
+
+   .header_navigation_li_dropdown_lopGia {
+      position: absolute;
+      background-color: transparent;
+      height: 26%;
+      width: 108%;
+      left: -4px;
+      bottom: -12px;
+   }
+
+   .header_navigation_li_dropdown_list {
+
+      .header_navigation_li_dropdown_list_ul {
+         list-style: none;
+         position: absolute;
+         top: 62px;
+         left: 0;
+         background-color: $color_white;
+         color: $color_black;
+         border-radius: 6px;
+         display: none;
+      }
+
+      .header_navigation_li_dropdown_list_li {
+         padding: 12px 18px;
+
+         &:hover {
+            background-color: rgb(224, 224, 224);
+            transition: all .5s;
+         }
+
+         &:first-child {
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+         }
+
+         &:last-child {
+            border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+         }
+      }
+   }
+
+   &:hover {
+      .header_navigation_li_dropdown_list_ul {
+         display: block;
+
+         @include respond-to($breakpoint: 1024px) {
+            display: none;
+         }
+      }
+   }
+
+
+}
+
+
+#header {
+   .header_content {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .header_content_title {
+         font-size: 50px;
+         color: $color_white;
+         text-transform: uppercase;
+
+         @include respond-to($breakpoint: 640px) {
+            font-size: 40px;
+            width: 380px;
+         }
+
+         @include respond-to($breakpoint: 420px) {
+            font-size: 36px;
+            width: 300px;
+         }
+      }
+
+      .header_content_text {
+         color: $color_white;
+         padding: 30px 0px;
+         width: 70%;
+         margin: 0 auto;
+      }
+
+      .header_content_btn {
+         border: 2px solid $color_white;
+         outline: none;
+         color: $color_white;
+         border-radius: 6px;
+         background-color: transparent;
+         padding: 12px;
+         transition: transform .5s ease-in-out;
+         font-size: 1em;
+         margin-top: 20px;
+
+         &:hover {
+            cursor: pointer;
+            transform: translate(0px, -6px);
+         }
+      }
+   }
+}
+
+#header {
+   .header_footer {
+      position: absolute;
+      bottom: 40px;
+      right: 50%;
+      transform: translate(50%, 0);
+
+      .header_footer_icon {
+         padding: 2px 4px;
+         transition: transform .3s ease-in-out;
+         transform-origin: center center;
+         color: $color_white;
+         font-size: .8em;
+
+         &:hover {
+            transform: scale(1.3);
+            cursor: pointer;
+         }
+      }
+
+   }
+}
+
+
+// Css layout welcome to our website
+
+#welcome_to_our_website {
+   @extend %CssBlockHaveStyleCommom;
+   height: auto;
+   animation: focus-in-contract-bck 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+   .welcome_to_our_website_title {
+      @extend %CssHeading2;
+
+      @include respond-to($breakpoint: 640px) {
+         font-size: 2.3em;
+      }
+   }
+
+   .welcome_to_our_website_text {
+      margin: 50px auto;
+      opacity: .5;
+      line-height: 1.6;
+      animation: none;
+      transition: all .5s;
+   }
+
+   .welcome_to_our_website_img {
+      width: 90%;
+   }
+
+   @include respond-to($breakpoint: 1024px) {
+      padding: 3.4rem;
+   }
+}
+
+
+
+// Css layout what we do
+#what_we_do {
+   @extend %CssBlockHaveStyleCommom;
+
+   .what_we_do_title {
+      @extend %CssHeading2;
+
+      @include respond-to($breakpoint: 640px) {
+         font-size: 2.3em;
+      }
+   }
+
+   .what_we_do_title_ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 60px;
+   }
+
+   @include respond-to($breakpoint: 1024px) {
+      padding: 3.4rem;
+   }
+}
+
+.what_we_do_title_ul {
+
+   .what_we_do_title_li {
+      width: 25%;
+      margin: 20px 0px;
+
+      .what_we_do_title_li_img {
+         border-radius: 50%;
+         width: 120px;
+         transition: transform 0.5s;
+
+         &:hover {
+            cursor: pointer;
+            animation: spin 1s;
+         }
+      }
+
+      .what_we_do_title_title {
+         margin: 20px 0px;
+      }
+
+      .what_we_do_title_text {
+         margin: 0 auto;
+         opacity: .5;
+      }
+
+      @include respond-to($breakpoint: 1536px) {
+         width: calc(100% / 3);
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: calc(100% / 2);
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 100%;
+      }
+   }
+}
+
+// Css layout our statistics
+
+#our_Statistics {
+   @include backGround(url('../img/bg.jpg'), auto);
+   text-align: center;
+   animation: bg-pan-bl 40s both;
+
+   .our_Statistics_title {
+      @extend %CssHeading2;
+      color: $color_white;
+      padding: 80px 0px;
+
+      @include respond-to($breakpoint: 640px) {
+         font-size: 2.3em;
+      }
+   }
+
+   .our_Statistics_ul {
+      list-style: none;
+      color: $color_white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      @include respond-to($breakpoint: 1024px) {
+         flex-wrap: wrap;
+         width: 100%;
+      }
+   }
+}
+
+.our_Statistics_ul {
+
+   .our_Statistics_li {
+      margin-bottom: 40px;
+
+      .our_Statistics_li_spanNumber {
+         font-size: 70px;
+      }
+
+      .our_Statistics_li_spanText {
+         font-weight: 600;
+         font-size: 18px;
+         padding: 20px 0px;
+         display: block;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         flex-wrap: wrap;
+         width: 50%;
+      }
+
+      @include respond-to($breakpoint: 640px) {
+         flex-wrap: wrap;
+         width: 100%;
+      }
+   }
+}
+
+// Css layout pet servicess
+#pet_services {
+   @extend %CssBlockHaveStyleCommom;
+   width: 100%;
+   display: flex;
+
+   .pet_services_left {
+      width: 30%;
+      height: auto;
+      padding: 30px;
+
+      .pet_services_left_title {
+         text-align: left;
+         @extend %CssHeading2;
+
+         @include respond-to($breakpoint: 1280px) {
+            font-size: 2.3rem;
+         }
+
+         @include respond-to($breakpoint: 1024px) {
+            font-size: 2rem;
+         }
+
+         @include respond-to($breakpoint: 678px) {
+            text-align: center;
+         }
+      }
+
+      .pet_services_left_text1 {
+         text-align: left;
+         line-height: 2;
+         margin: 20px 0px;
+         opacity: .6;
+
+         @include respond-to($breakpoint: 678px) {
+            text-align: center;
+         }
+      }
+
+      .pet_services_left_text2 {
+         text-align: left;
+         line-height: 2;
+         opacity: .6;
+
+         @include respond-to($breakpoint: 678px) {
+            text-align: center;
+         }
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         padding: 2px;
+      }
+
+      @include respond-to($breakpoint: 678px) {
+         width: 100%;
+         margin: 0 auto;
+      }
+   }
+
+   .pet_services_right {
+      width: 70%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      transition: all 1s;
+
+      @include respond-to($breakpoint: 1024px) {
+         margin-left: 20px;
+      }
+
+      @include respond-to($breakpoint: 678px) {
+         margin: 0 auto;
+         width: 100%;
+         margin-top: 20px;
+      }
+   }
+
+   @include respond-to($breakpoint: 1280px) {
+      padding: 3.4rem;
+   }
+
+   @include respond-to($breakpoint: 678px) {
+      display: block;
+   }
+}
+
+
+.pet_services_right {
+
+   .pet_services_right_item {
+      width: calc(50% - 26px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 6px 6px 25px rgba(106, 199, 254, 0.316), 0 0 5px rgb(255, 255, 255);
+      margin: 10px;
+      border-radius: 4px;
+      padding: 20px;
+
+      .pet_services_right_item_icon {
+         font-size: 50px;
+         color: orange;
+         transform: rotate(45deg);
+         margin: 20px 0px;
+      }
+
+      .pet_services_right_item_title {
+         font-size: 32px;
+         margin: 20px 0px;
+         opacity: .7;
+      }
+
+      .pet_services_right_item_text {
+         line-height: 1.6;
+         opacity: .6;
+      }
+
+      &:hover {
+         background: #ff9900;
+         color: $color_white;
+         transition: all 1s;
+         cursor: pointer;
+
+
+         .pet_services_right_item_icon {
+            color: $color_white;
+            transition: all 1s;
+         }
+
+         .pet_services_right_item_title {
+            color: $color_black;
+            transition: all 1s;
+            opacity: 1;
+         }
+
+         .pet_services_right_item_text {
+            color: $color_white;
+            opacity: 1;
+            transition: all 1s;
+         }
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: calc(100% - 26px);
+      }
+   }
+}
+
+
+// Css layout pet servicess
+
+
+#testimonials {
+   @include backGround(url('../img/bg.jpg'), auto);
+
+   .testimonials_title {
+      @extend %CssHeading2;
+      color: $color_white;
+      padding: 60px 0px;
+
+      @include respond-to($breakpoint: 1280px) {
+         font-size: 2.3rem;
+      }
+   }
+
+   .testimonials_ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      margin: 0 auto;
+
+      @include respond-to($breakpoint: 1024px) {
+         flex-wrap: wrap;
+      }
+
+   }
+}
+
+.testimonials_ul {
+
+   .testimonials_li {
+      width: 20%;
+      margin-bottom: 60px;
+      transition: opacity .8s ease-in-out, transform .8s ease-in-out;
+
+      .testimonials_li_text {
+         color: $color_white;
+         line-height: 1.6;
+         text-align: center;
+      }
+
+      .testimonials_li_img {
+         border-radius: 50%;
+         margin: 20px auto;
+         display: block;
+      }
+
+      .testimonials_li_span {
+         font-size: 24px;
+         color: orange;
+         font-weight: 600;
+         float: right;
+
+         @include respond-to($breakpoint: 1024px) {
+            padding-right: 50px;
+         }
+
+      }
+
+      &:hover {
+         transform: translateY(-80px);
+         opacity: 0;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 40%;
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 80%;
+      }
+   }
+}
+
+// Css layout Our blog
+
+#our_blog {
+   @extend %CssBlockHaveStyleCommom;
+   transition: all 1s;
+
+   .our_blog_title {
+      @extend %CssHeading2;
+      padding: 60px 0px;
+
+      @include respond-to($breakpoint: 1280px) {
+         font-size: 2.3rem;
+      }
+   }
+
+   .our_blog_ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+
+      @include respond-to($breakpoint: 1024px) {
+         flex-wrap: wrap;
+      }
+   }
+
+
+   @include respond-to($breakpoint: 1280px) {
+      padding: 3rem;
+      transition: all 1s;
+   }
+
+   @include respond-to($breakpoint: 1280px) {
+      padding: 2rem;
+      transition: all 1s;
+   }
+}
+
+.our_blog_ul {
+
+   .our_blog_li,
+   .our_blog_li_last {
+      width: 30%;
+      border: 1px solid rgb(233, 233, 233);
+      border-radius: 6px;
+      text-align: left;
+      height: auto;
+
+      &:hover {
+         animation: bounce-top 0.9s both;
+      }
+
+      .our_blog_li_img {
+         width: 100%;
+         border-top-left-radius: 6px;
+         border-top-right-radius: 6px;
+      }
+
+      .our_blog_li_title {
+         padding: 16px;
+         font-weight: 500;
+         font-size: 20px;
+      }
+
+      .our_blog_li_text {
+         padding: 16px;
+         opacity: .6;
+
+      }
+
+      .our_blog_li_tagA {
+         padding: 16px;
+         display: inline-block;
+         text-decoration: none;
+         color: rgb(255, 140, 0);
+         font-weight: 600;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 48%;
+         margin-top: 40px;
+      }
+
+      @include respond-to($breakpoint: 640px) {
+         width: 90%;
+         margin-top: 40px;
+      }
+   }
+
+   .our_blog_li_last {
+      padding: 30px;
+
+      .our_blog_li_last_text {
+         padding: 16px 0px;
+         transition: .4s ease-in-out;
+         font-size: 20px;
+
+         &:hover {
+            color: rgb(255, 140, 0);
+            cursor: pointer;
+         }
+      }
+
+      span {
+         color: rgb(255, 115, 0);
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         padding: 20px;
+      }
+
+   }
+}
+
+// Css layout google map address
+
+#google_map_address {
+   height: auto;
+
+   .google_map_address_img {
+      width: 100%;
+      object-fit: cover;
+   }
+}
+
+// Css layout contact US
+
+#contact_us {
+   @extend %CssBlockHaveStyleCommom;
+   transition: all .5s;
+
+   .contact_us_text {
+      @extend %CssHeading2;
+      padding: 60px 0px;
+
+      @include respond-to($breakpoint: 1280px) {
+         font-size: 2.3rem;
+      }
+   }
+
+   .contact_us_content {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+      @include respond-to($breakpoint: 768px) {
+         display: block;
+      }
+   }
+
+   @include respond-to($breakpoint: 1280px) {
+      padding: 2.6rem;
+      transition: all .5s;
+   }
+}
+
+
+.contact_us_content {
+
+   .contact_us_content_left {
+      width: 50%;
+      text-align: left;
+
+      .contact_us_content_left_text {
+         font-size: 30px;
+         font-weight: 400;
+         color: orange;
+         margin: 30px 0px;
+      }
+
+      .contact_us_content_left_ul {
+         list-style: none;
+
+
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         margin: 0 auto;
+         width: 100%;
+      }
+   }
+
+   .contact_us_content_right {
+      width: 50%;
+      background-color: #f7f7f7;
+      padding: 40px;
+      border-radius: 4px;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
+
+      .contact_us_content_right_inputName {
+         @extend %CssInputForm;
+      }
+
+      .contact_us_content_right_inputEmail {
+         @extend %CssInputForm;
+
+      }
+
+      .contact_us_content_right_textarea {
+         @extend %CssInputForm;
+         height: 200px;
+         padding-top: 10px
+      }
+
+      .contact_us_content_right_btn {
+         @extend %CssInputForm;
+
+         background-color: orange;
+         border: none;
+         border-radius: 6px;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         margin: 0 auto;
+         padding: 20px;
+         width: 100%;
+      }
+   }
+}
+
+.contact_us_content_left_ul {
+   .contact_us_content_left_li {
+      display: flex;
+
+      .contact_us_content_left_li_container_icon {
+         width: 30%;
+         height: 90px;
+
+         i {
+            font-size: 30px;
+         }
+
+         @include respond-to($breakpoint: 1024px) {
+            width: 12%;
+         }
+
+         @include respond-to($breakpoint: 420px) {
+            width: 20%;
+         }
+      }
+
+      .contact_us_content_left_li_container_text {
+
+         h3 {}
+
+         p {
+            padding: 10px 0px;
+         }
+
+      }
+   }
+}
+
+#footer {
+   background-color: $color_black;
+   height: auto;
+   padding: 50px 80px;
+   display: flex;
+   justify-content: space-evenly;
+   animation: color_change-3x 4s linear infinite alternate both;
+
+   .footer_ABOUT_US {
+      width: 20%;
+
+      h3 {
+         color: $color_white;
+         font-size: 22px;
+      }
+
+      p {
+         @extend %CssTagPFooter;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 44%;
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 88%;
+         margin-top: 20px;
+      }
+   }
+
+   .footer_WHO_WE_ARE {
+      width: 20%;
+
+      h3 {
+         color: $color_white;
+         font-size: 22px;
+
+      }
+
+      p {
+         @extend %CssTagPFooter;
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 44%;
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 88%;
+         margin-top: 20px;
+
+      }
+   }
+
+   .footer_ABOUT_US_Contact_Info {
+      width: 20%;
+
+      h3,
+      span {
+         color: $color_white;
+         font-size: 22px;
+
+      }
+
+      ul {
+         list-style: none;
+
+         span {
+            margin-top: 30px;
+            display: block;
+         }
+
+         p {
+            @extend %CssTagPFooter;
+            margin: 0;
+         }
+      }
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 44%;
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 88%;
+         margin-top: 20px;
+
+      }
+   }
+
+   .footer_NEWSLETTER {
+      width: 20%;
+
+      @include respond-to($breakpoint: 1024px) {
+         width: 44%;
+      }
+
+      @include respond-to($breakpoint: 768px) {
+         width: 88%;
+         margin-top: 20px;
+
+      }
+   }
+
+   @include respond-to($breakpoint: 1024px) {
+      flex-wrap: wrap;
+      padding: 26px 40px;
+   }
+}
+
+.footer_NEWSLETTER {
+   h3 {
+      color: $color_white;
+      font-size: 22px;
+
+   }
+
+   p {
+      @extend %CssTagPFooter;
+   }
+
+   .footer_NEWSLETTER_inputAndBtn {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      input {
+         width: 70%;
+         margin-bottom: 30px;
+         padding: 13px;
+         font-size: 15px;
+         outline: none;
+         transition: all .5s;
+
+
+         @include respond-to($breakpoint: 1536px) {
+            width: 100%;
+            transition: all .5s;
+         }
+      }
+
+      button {
+         width: 30%;
+         margin-bottom: 30px;
+         padding: 15px 20px;
+         font-size: 15px;
+         color: #fff;
+         background-color: #c57600;
+         border: none;
+         transition: all 0.2s;
+
+         &:hover {
+            background-color: #ff9900;
+            cursor: pointer;
+         }
+
+         @include respond-to($breakpoint: 1536px) {
+            width: 100%;
+            transition: all .5s;
+         }
+      }
+
+      @include respond-to($breakpoint: 1536px) {
+         display: block;
+      }
+   }
+
+   ul {
+      list-style: none;
+      display: flex;
+
+      li {
+         margin: 20px 12px 0px 0px;
+         padding: 10px;
+
+         i {
+            color: $color_white;
+         }
+      }
+
+      .container_icon_fb {
+         background-color: #3b5998;
+      }
+
+      .container_icon_twt {
+         background-color: #1da1f2;
+      }
+
+      .container_icon_bkb {
+         background-color: #ea4c89;
+      }
+
+      .container_icon_gg {
+         background-color: #f44336;
+      }
+   }
+}
+
+
+
+
+// Css animation img of layout what we do
+@keyframes spin {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+
+@keyframes bounce-top {
+   0% {
+      transform: translateY(-45px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+   }
+
+   24% {
+      opacity: 1;
+   }
+
+   40% {
+      transform: translateY(-24px);
+      animation-timing-function: ease-in;
+   }
+
+   65% {
+      transform: translateY(-12px);
+      animation-timing-function: ease-in;
+   }
+
+   82% {
+      transform: translateY(-6px);
+      animation-timing-function: ease-in;
+   }
+
+   93% {
+      transform: translateY(-4px);
+      animation-timing-function: ease-in;
+   }
+
+   25%,
+   55%,
+   75%,
+   87% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+   }
+
+   100% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+   }
+}
+
+
+// css animation cho background footer
+
+
+@keyframes color_change-3x {
+   0% {
+      background: #17181b;
+   }
+
+   50% {
+      background: #272729;
+   }
+
+   100% {
+      background: #333436;
+   }
+}
+
+// Css phần title header
+@keyframes tracking-in-expand {
+   0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+   }
+
+   40% {
+      opacity: 0.6;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+// css phần welcome
+
+@keyframes focus-in-contract-bck {
+   0% {
+      letter-spacing: 1em;
+      transform: translateZ(300px);
+      filter: blur(12px);
+      opacity: 0;
+   }
+
+   100% {
+      transform: translateZ(12px);
+      filter: blur(0);
+      opacity: 1;
+   }
+}
+
+@keyframes bg-pan-bl {
+   0% {
+      background-position: 100% 0%;
+   }
+
+   20% {
+      background-position: 0% 100%;
+   }
+
+   40% {
+      background-position: 100% 0%;
+   }
+
+   60% {
+      background-position: 0% 100%;
+   }
+
+   80% {
+      background-position: 100% 0%;
+   }
+
+   100% {
+      background-position: 0% 100%;
+   }
+}
