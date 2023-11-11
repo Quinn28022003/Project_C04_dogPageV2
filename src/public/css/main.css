@@ -13,7 +13,7 @@
   display: block !important;
 }
 
-#contact_us .contact_us_text, #our_blog .our_blog_title, #testimonials .testimonials_title, #pet_services .pet_services_left .pet_services_left_title, #our_Statistics .our_Statistics_title, #what_we_do .what_we_do_title, #welcome_to_our_website .welcome_to_our_website_title {
+#contact_us .contact_us_text, #our_blog .our_blog_title, #testimonials .testimonials_title, #pet_services .pet_services_item_1_title, #our_Statistics .our_Statistics_title, #what_we_do .what_we_do_title, #welcome_to_our_website .welcome_to_our_website_title {
   font-size: 44px;
   color: black;
   text-align: center;
@@ -384,144 +384,229 @@ p {
 }
 
 #pet_services {
-  width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
 }
-#pet_services .pet_services_left {
-  width: 30%;
-  height: auto;
-  padding: 30px;
+#pet_services .pet_services_item_1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: white;
+  transition: all 1s;
 }
-#pet_services .pet_services_left .pet_services_left_title {
+#pet_services .pet_services_item_1_title {
   text-align: left;
 }
 @media screen and (max-width: 1280px) {
-  #pet_services .pet_services_left .pet_services_left_title {
+  #pet_services .pet_services_item_1_title {
     font-size: 2.3rem;
   }
 }
 @media screen and (max-width: 1024px) {
-  #pet_services .pet_services_left .pet_services_left_title {
+  #pet_services .pet_services_item_1_title {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 678px) {
-  #pet_services .pet_services_left .pet_services_left_title {
+  #pet_services .pet_services_item_1_title {
     text-align: center;
   }
 }
-#pet_services .pet_services_left .pet_services_left_text1 {
+#pet_services .pet_services_item_1_text1 {
   text-align: left;
   line-height: 2;
   margin: 20px 0px;
   opacity: 0.6;
 }
 @media screen and (max-width: 678px) {
-  #pet_services .pet_services_left .pet_services_left_text1 {
+  #pet_services .pet_services_item_1_text1 {
     text-align: center;
   }
 }
-#pet_services .pet_services_left .pet_services_left_text2 {
+#pet_services .pet_services_item_1_text2 {
   text-align: left;
   line-height: 2;
   opacity: 0.6;
 }
 @media screen and (max-width: 678px) {
-  #pet_services .pet_services_left .pet_services_left_text2 {
+  #pet_services .pet_services_item_1_text2 {
     text-align: center;
   }
 }
 @media screen and (max-width: 1024px) {
-  #pet_services .pet_services_left {
-    padding: 2px;
+  #pet_services .pet_services_item_1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: white;
   }
 }
-@media screen and (max-width: 678px) {
-  #pet_services .pet_services_left {
-    width: 100%;
-    margin: 0 auto;
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item_1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
   }
 }
-#pet_services .pet_services_right {
-  width: 70%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  transition: all 1s;
-}
-@media screen and (max-width: 1024px) {
-  #pet_services .pet_services_right {
-    margin-left: 20px;
-  }
-}
-@media screen and (max-width: 678px) {
-  #pet_services .pet_services_right {
-    margin: 0 auto;
-    width: 100%;
-    margin-top: 20px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  #pet_services {
-    padding: 3.4rem;
-  }
-}
-@media screen and (max-width: 678px) {
-  #pet_services {
-    display: block;
-  }
-}
-
-.pet_services_right .pet_services_right_item {
-  width: calc(50% - 26px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#pet_services .pet_services_item {
   box-shadow: 6px 6px 25px rgba(106, 199, 254, 0.316), 0 0 5px rgb(255, 255, 255);
-  margin: 10px;
   border-radius: 4px;
-  padding: 20px;
+  padding: 30px 30px 50px 30px;
 }
-.pet_services_right .pet_services_right_item .pet_services_right_item_icon {
+#pet_services .pet_services_item_2:hover, #pet_services .pet_services_item_3:hover, #pet_services .pet_services_item_4:hover, #pet_services .pet_services_item_5:hover {
+  background: #ff9900;
+  transition: all 1s;
+  cursor: pointer;
+}
+#pet_services .pet_services_item_2:hover .pet_services_item_2_icon, #pet_services .pet_services_item_2:hover .pet_services_item_3_icon, #pet_services .pet_services_item_2:hover .pet_services_item_4_icon, #pet_services .pet_services_item_2:hover .pet_services_item_5_icon, #pet_services .pet_services_item_3:hover .pet_services_item_2_icon, #pet_services .pet_services_item_3:hover .pet_services_item_3_icon, #pet_services .pet_services_item_3:hover .pet_services_item_4_icon, #pet_services .pet_services_item_3:hover .pet_services_item_5_icon, #pet_services .pet_services_item_4:hover .pet_services_item_2_icon, #pet_services .pet_services_item_4:hover .pet_services_item_3_icon, #pet_services .pet_services_item_4:hover .pet_services_item_4_icon, #pet_services .pet_services_item_4:hover .pet_services_item_5_icon, #pet_services .pet_services_item_5:hover .pet_services_item_2_icon, #pet_services .pet_services_item_5:hover .pet_services_item_3_icon, #pet_services .pet_services_item_5:hover .pet_services_item_4_icon, #pet_services .pet_services_item_5:hover .pet_services_item_5_icon {
+  color: white;
+}
+#pet_services .pet_services_item_2:hover .pet_services_item_2_title, #pet_services .pet_services_item_2:hover .pet_services_item_3_title, #pet_services .pet_services_item_2:hover .pet_services_item_4_title, #pet_services .pet_services_item_2:hover .pet_services_item_5_title, #pet_services .pet_services_item_3:hover .pet_services_item_2_title, #pet_services .pet_services_item_3:hover .pet_services_item_3_title, #pet_services .pet_services_item_3:hover .pet_services_item_4_title, #pet_services .pet_services_item_3:hover .pet_services_item_5_title, #pet_services .pet_services_item_4:hover .pet_services_item_2_title, #pet_services .pet_services_item_4:hover .pet_services_item_3_title, #pet_services .pet_services_item_4:hover .pet_services_item_4_title, #pet_services .pet_services_item_4:hover .pet_services_item_5_title, #pet_services .pet_services_item_5:hover .pet_services_item_2_title, #pet_services .pet_services_item_5:hover .pet_services_item_3_title, #pet_services .pet_services_item_5:hover .pet_services_item_4_title, #pet_services .pet_services_item_5:hover .pet_services_item_5_title {
+  color: black;
+  opacity: 1;
+}
+#pet_services .pet_services_item_2:hover .pet_services_item_2_text, #pet_services .pet_services_item_2:hover .pet_services_item_3_text, #pet_services .pet_services_item_2:hover .pet_services_item_4_text, #pet_services .pet_services_item_2:hover .pet_services_item_5_text, #pet_services .pet_services_item_3:hover .pet_services_item_2_text, #pet_services .pet_services_item_3:hover .pet_services_item_3_text, #pet_services .pet_services_item_3:hover .pet_services_item_4_text, #pet_services .pet_services_item_3:hover .pet_services_item_5_text, #pet_services .pet_services_item_4:hover .pet_services_item_2_text, #pet_services .pet_services_item_4:hover .pet_services_item_3_text, #pet_services .pet_services_item_4:hover .pet_services_item_4_text, #pet_services .pet_services_item_4:hover .pet_services_item_5_text, #pet_services .pet_services_item_5:hover .pet_services_item_2_text, #pet_services .pet_services_item_5:hover .pet_services_item_3_text, #pet_services .pet_services_item_5:hover .pet_services_item_4_text, #pet_services .pet_services_item_5:hover .pet_services_item_5_text {
+  color: white;
+  opacity: 1;
+}
+#pet_services .pet_services_item_2_icon, #pet_services .pet_services_item_3_icon, #pet_services .pet_services_item_4_icon, #pet_services .pet_services_item_5_icon {
   font-size: 50px;
   color: orange;
   transform: rotate(45deg);
   margin: 20px 0px;
 }
-.pet_services_right .pet_services_right_item .pet_services_right_item_title {
+#pet_services .pet_services_item_2_title, #pet_services .pet_services_item_3_title, #pet_services .pet_services_item_4_title, #pet_services .pet_services_item_5_title {
   font-size: 32px;
   margin: 20px 0px;
   opacity: 0.7;
 }
-.pet_services_right .pet_services_right_item .pet_services_right_item_text {
+#pet_services .pet_services_item_2_text, #pet_services .pet_services_item_3_text, #pet_services .pet_services_item_4_text, #pet_services .pet_services_item_5_text {
   line-height: 1.6;
   opacity: 0.6;
 }
-.pet_services_right .pet_services_right_item:hover {
-  background: #ff9900;
-  color: white;
-  transition: all 1s;
-  cursor: pointer;
-}
-.pet_services_right .pet_services_right_item:hover .pet_services_right_item_icon {
-  color: white;
-  transition: all 1s;
-}
-.pet_services_right .pet_services_right_item:hover .pet_services_right_item_title {
-  color: black;
-  transition: all 1s;
-  opacity: 1;
-}
-.pet_services_right .pet_services_right_item:hover .pet_services_right_item_text {
-  color: white;
-  opacity: 1;
-  transition: all 1s;
+#pet_services .pet_services_item_2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: white;
 }
 @media screen and (max-width: 1024px) {
-  .pet_services_right .pet_services_right_item {
-    width: calc(100% - 26px);
+  #pet_services .pet_services_item_2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item_2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: white;
+  }
+}
+#pet_services .pet_services_item_3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: white;
+}
+@media screen and (max-width: 1024px) {
+  #pet_services .pet_services_item_3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item_3 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: white;
+  }
+}
+#pet_services .pet_services_item_4 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: white;
+}
+@media screen and (max-width: 1024px) {
+  #pet_services .pet_services_item_4 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item_4 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: white;
+  }
+}
+#pet_services .pet_services_item_5 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: white;
+}
+@media screen and (max-width: 1024px) {
+  #pet_services .pet_services_item_5 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item_5 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services .pet_services_item {
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #pet_services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  #pet_services {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto 1fr 1fr 1fr 1fr;
   }
 }
 
